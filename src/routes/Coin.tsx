@@ -178,7 +178,7 @@ function Coin() {
   const { state } = useLocation() as LocationState;
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
-  const mainMatch = useMatch("/");
+  const mainMatch = useMatch("/crypto-tracker");
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
     ["info", coinId],
     () => fetchCoinInfo(coinId)
@@ -243,7 +243,7 @@ function Coin() {
             <Route path="chart" element={<Chart />} />
           </Routes> */}
           <Main isActive={mainMatch !== null}>
-            <Link to="/">Main</Link>
+            <Link to="/crypto-tracker">Main</Link>
           </Main>
           <Tabs>
             <Tab isActive={chartMatch !== null}>
