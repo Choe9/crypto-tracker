@@ -58,7 +58,8 @@ function Price() {
               },
               background: "rgba(0, 0, 0, 0.5)",
               stacked: true,
-              stackType: "normal",
+              // stackType: "100%",
+              // stackType: "normal",
             },
             // grid: { show: false },
             // stroke: {
