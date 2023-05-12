@@ -2,6 +2,8 @@ import { useQuery } from "react-query";
 import { useOutletContext } from "react-router-dom";
 import { fetchCoinHistory } from "../api";
 import ReactApexChart from "react-apexcharts";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 interface IHistorical {
   time_open: number;
@@ -19,6 +21,7 @@ interface PriceProps {
 }
 
 function Price() {
+  const isDark = useRecoilValue(isDarkAtom);
   const { coinId } = useOutletContext() as PriceProps;
   const { isLoading, data } = useQuery<IHistorical[]>(
     // ["ohlcv", "btc-bitcoin"],
@@ -48,7 +51,7 @@ function Price() {
           ]}
           options={{
             theme: {
-              mode: "dark",
+              mode: isDark ? "dark" : "light",
             },
             chart: {
               // height: 300,
